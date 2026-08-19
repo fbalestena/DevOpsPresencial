@@ -61,7 +61,7 @@ def opcion6():
 
     webbrowser.open("http://127.0.0.1:5000") 
 
-def opcion7()
+def opcion7():
   print("🔍 Has elegido la Opción 7: Monitoreo Memoria") 
 
     for proceso in psutil.process_iter(['pid', 'name', 'memory_percent', 'status']):
