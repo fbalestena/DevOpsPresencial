@@ -4,14 +4,13 @@ import time
 
 import webbrowser 
 
- 
+import psutil
 
 def opcion1(): 
 
     print("🔍 Has elegido la Opción 1: Python Oficial") 
 
     webbrowser.open("https://www.python.org") 
-
  
 
 def opcion2(): 
@@ -62,6 +61,22 @@ def opcion6():
 
     webbrowser.open("http://127.0.0.1:5000") 
 
+def opcion7()
+  print("🔍 Has elegido la Opción 7: Monitoreo Memoria") 
+
+    for proceso in psutil.process_iter(['pid', 'name', 'memory_percent', 'status']):
+        try:
+            info = proceso.info
+
+            print(
+                f"PID: {info['pid']} | "
+                f"Nombre: {info['name']} | "
+                f"Memoria: {info['memory_percent']:.2f}% | "
+                f"Estado: {info['status']}"
+            )
+         
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            pass
  
 
 def mostrar_menu(): 
@@ -79,8 +94,10 @@ def mostrar_menu():
     print("5. System Monitor") 
 
     print("6. System Check") 
+    
+    print("7. Memory Check") 
 
-    print("7. Salir") 
+    print("8. Salir") 
 
  
 
@@ -117,8 +134,12 @@ def main():
             elif opcion == 6: 
 
                 opcion6() 
-
+             
             elif opcion == 7: 
+
+                opcion7()
+
+            elif opcion == 8: 
 
                 print("👋 Saliendo del programa...") 
 
@@ -126,7 +147,7 @@ def main():
 
             else: 
 
-                print("❌ Error: Ingresa un número del 1 al 7.") 
+                print("❌ Error: Ingresa un número del 1 al 8.") 
 
         except ValueError: 
 
